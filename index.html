@@ -9,6 +9,11 @@
     <!-- daisyUI and tailwindcss -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
 <body>
@@ -38,10 +43,12 @@
                 </div>
 
                 <div class="learn_btn">
-                    <button
-                        class="btn btn-sm md:btn-md  btn-outline btn-primary font-semibold text-sm group hover:text-white"><img
-                            class="w-5 h-5 gap-2 transition-all duration-200 group-hover:brightness-0 group-hover:invert"
-                            src="assets/fa-book-open.png" alt="">Learn</button>
+                    <a href="#learn-section">
+                        <button
+                            class="btn btn-sm md:btn-md  btn-outline btn-primary font-semibold text-sm group hover:text-white"><img
+                                class="w-5 h-5 gap-2 transition-all duration-200 group-hover:brightness-0 group-hover:invert"
+                                src="assets/fa-book-open.png" alt="">Learn</button>
+                    </a>
                 </div>
 
                 <div class="logout_btn">
@@ -88,7 +95,7 @@
     </section>
 
     <!-- let's learn vocabularies -->
-    <section class="w-11/12 mx-auto mb-16 md:mb-44">
+    <section id="learn-section" class="w-11/12 mx-auto mb-16 md:mb-44">
         <div>
             <h1 class="text-center text-3xl md:text-4xl font-extrabold mb-5 md:mb-10">
                 <span class="text-[#00BCFF]">Let's</span>
