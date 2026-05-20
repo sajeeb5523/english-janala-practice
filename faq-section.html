@@ -16,13 +16,11 @@
         <nav class="w-11/12 mx-auto flex justify-between ">
             <!-- left side -->
             <div>
-                <a href="../english-janala-practice/index.html">
-                    <div class="logo flex items-center font-bold">
-                        <h1 class="text-xl md:text-2xl">English</h1>
-                        <img class="w-8 h-8 md:w-10 md:h-10" src="assets/logo.png" alt="">
-                        <h1 class="text-xl md:text-[22px]">জানালা</h1>
-                    </div>
-                </a>
+                <div id="main_file_open" class="logo flex items-center font-bold cursor-pointer">
+                    <h1 class="text-xl md:text-2xl">English</h1>
+                    <img class="w-8 h-8 md:w-10 md:h-10" src="assets/logo.png" alt="">
+                    <h1 class="text-xl md:text-[22px]">জানালা</h1>
+                </div>
             </div>
 
             <!-- right side -->
@@ -153,6 +151,13 @@
             </div>
         </div>
     </section>
+
+    <!-- script file -->
+    <script>
+        document.getElementById('main_file_open').addEventListener('click', function () {
+            console.log(window.location.href = 'index.html')
+        })
+    </script>
 </body>
 
 </html>
