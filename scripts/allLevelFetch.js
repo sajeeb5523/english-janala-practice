@@ -12,6 +12,12 @@ const loadWordsByLevel = (id) => {
         .then(data => displayWordShowByLevel(data));
 }
 
+const playSound = (word) => {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'en-US';
+    window.speechSynthesis.speak(utterance);
+}
+
 // display show
 const displayLevelShow = (allLevel) => {
 
@@ -72,7 +78,7 @@ const displayWordShowByLevel = (words) => {
                     <button class="btn bg-[#1A91FF20]">
                         <i class="fas fa-info-circle"></i>
                     </button>
-                    <button class="btn bg-[#1A91FF20]">
+                    <button onclick="playSound('${word.word}')" class="btn bg-[#1A91FF20]">
                         <i class="fas fa-volume-up"></i>
                     </button>
                 </div>
