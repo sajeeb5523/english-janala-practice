@@ -6,6 +6,12 @@ const allLevelFetch = () => {
 
 }
 
+const loadWordsByLevel = (id) => {
+    fetch(`https://openapi.programming-hero.com/api/level/${id}`)
+        .then(res => res.json())
+        .then(data => displayWordShowByLevel(data))
+}
+
 // display show
 const displayLevelShow = (allLevel) => {
 
@@ -21,6 +27,7 @@ const displayLevelShow = (allLevel) => {
                     src="assets/fa-book-open.png" alt=""> Lesson -${level.level_no}
             </button>
         `
+        createDiv.querySelector('button').addEventListener('click', () => loadWordsByLevel(level.level_no));
         showLevel.appendChild(createDiv);
     }
 }
