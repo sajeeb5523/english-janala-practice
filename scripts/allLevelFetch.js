@@ -64,7 +64,9 @@ const displayWordDetails = (data) => {
 
             <div class="space-y-2">
                 <h4 class="text-xl font-bold text-gray-800">Meaning</h4>
-                <p class="text-lg">${word.meaning}</p>
+                <p class="text-lg text-gray-700">
+                    ${word.meaning ? word.meaning : '<span class="font-bold">অর্থ খুঁজে পাওয়া যাচ্ছে না</span>'}
+                </p>
             </div>
 
             <div class="space-y-2">
@@ -76,11 +78,9 @@ const displayWordDetails = (data) => {
                 <h4 class="text-xl font-bold text-gray-800">সমার্থক শব্দ গুলো</h4>
                 <div class="flex flex-wrap gap-3">
                     ${word.synonyms && word.synonyms.length > 0 ?
-            word.synonyms.map(syn => `
-                        <span class="px-4 py-2 rounded-sm bg-[#EBF5FF] text-gray-800 border border-[#D1E7FF] font-medium text-base shadow-sm">
-                            ${syn}
-                        </span>
-                    `).join('') : `<span class="text-red-500">null</span>`}
+                        word.synonyms.map(syn => `
+                            <span class="px-4 py-2 rounded-sm bg-[#EBF5FF] text-gray-800 border border-[#D1E7FF] font-medium text-base shadow-sm"> ${syn}</span>
+                        `).join('') : ''}
                 </div>
             </div>
         </div>
