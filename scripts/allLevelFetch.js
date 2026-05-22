@@ -6,7 +6,27 @@ const allLevelFetch = () => {
 
 }
 
+let activeLevelId = null;
+
 const loadWordsByLevel = (id) => {
+    // Remove active class from all buttons and reset image
+    document.querySelectorAll('#level_show button').forEach(btn => {
+        btn.classList.remove('btn-active', 'text-white');
+        const img = btn.querySelector('img');
+        if (img) {
+            img.classList.remove('brightness-0', 'invert');
+        }
+    });
+
+    // Add active class to clicked button and make image white
+    const clickedButton = event.target.closest('button');
+    clickedButton.classList.add('btn-active', 'text-white');
+    const img = clickedButton.querySelector('img');
+    if (img) {
+        img.classList.add('brightness-0', 'invert');
+    }
+    activeLevelId = id;
+
     fetch(`https://openapi.programming-hero.com/api/level/${id}`)
         .then(res => res.json())
         .then(data => displayWordShowByLevel(data));
