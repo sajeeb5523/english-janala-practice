@@ -18,6 +18,56 @@ const playSound = (word) => {
     window.speechSynthesis.speak(utterance);
 }
 
+const loadWordDetails = (wordId) => {
+    fetch(`https://openapi.programming-hero.com/api/word/${wordId}`)
+        .then(res => res.json())
+        .then(data => displayWordDetails(data))
+}
+
+const displayWordDetails = (data) => {
+    const modal = document.getElementById('word_details');
+    const detailsContainer = document.getElementById('details_container');
+    const word = data.data;
+
+    detailsContainer.innerHTML = `
+        <div class="space-y-6 text-left">
+            <div class="flex items-center gap-2">
+                <h2 class="text-3xl font-extrabold text-gray-900">${word.word}</h2>
+                <div class="text-2xl font-bold text-gray-900 flex items-center gap-1">
+                    <span>(</span>
+                    <button onclick="playSound('${word.word}')" class="text-gray-700 hover:text-black focus:outline-none flex items-center">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                    </button>
+                    <span>:${word.pronunciation})</span>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <h4 class="text-xl font-bold text-gray-800">Meaning</h4>
+                <p class="text-lg">${word.meaning}</p>
+            </div>
+
+            <div class="space-y-2">
+                <h4 class="text-xl font-bold text-gray-800">Example</h4>
+                <p class="text-lg font-normal">${word.sentence}</p>
+            </div>
+        
+            <div class="space-y-3">
+                <h4 class="text-xl font-bold text-gray-800">সমার্থক শব্দ গুলো</h4>
+                <div class="flex flex-wrap gap-3">
+                    ${word.synonyms && word.synonyms.length > 0 ?
+            word.synonyms.map(syn => `
+                        <span class="px-4 py-2 rounded-sm bg-[#EBF5FF] text-gray-800 border border-[#D1E7FF] font-medium text-base shadow-sm">
+                            ${syn}
+                        </span>
+                    `).join('') : `<span class="text-red-500">null</span>`}
+                </div>
+            </div>
+        </div>
+    `;
+
+    modal.showModal();
+}
 // display show
 const displayLevelShow = (allLevel) => {
 
@@ -75,7 +125,7 @@ const displayWordShowByLevel = (words) => {
 
             <div class="mt-auto"> 
                 <div class="justify-between flex">
-                    <button class="btn bg-[#1A91FF20]">
+                    <button onclick="loadWordDetails(${word.id})" class="btn bg-[#1A91FF20]">
                         <i class="fas fa-info-circle"></i>
                     </button>
                     <button onclick="playSound('${word.word}')" class="btn bg-[#1A91FF20]">
