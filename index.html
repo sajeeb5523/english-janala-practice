@@ -17,11 +17,42 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* hide sections initially - only show banner and footer */
+        #navbar,
+        #learn-section,
+        #faq-section,
+        #word_show_container {
+            display: none;
+        }
+
+        /* fixed navbar */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        /* add padding to body to account for fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+
+        #learn-section {
+            margin-top: 20px;
+            scroll-margin-top: 120px;
+        }
+
+        #faq-section {
+            scroll-margin-top: 100px;
+        }
     </style>
 </head>
 
 <body>
-    <header class=" justify-between bg-[#C6BDBD20] border-b py-6 border-[#C6BDBD]">
+    <header id="navbar" class=" justify-between bg-white border-b py-6 border-[#C6BDBD]">
 
         <nav class="w-11/12 mx-auto flex justify-between ">
             <!-- left side -->
@@ -56,7 +87,7 @@
                 </div>
 
                 <div class="logout_btn">
-                    <button
+                    <button id="logout-btn"
                         class="btn btn-sm md:btn-md btn-outline btn-primary font-semibold text-sm group hover:text-white"><img
                             class="w-5 h-5 gap-2 transition-all duration-200 group-hover:brightness-0 group-hover:invert"
                             src="assets/fa-arrow-right-from-bracket.png" alt="">Logout</button>
@@ -66,7 +97,7 @@
     </header>
 
     <!-- hero section -->
-    <section class="w-11/12 mx-auto">
+    <section id="banner" class="w-11/12 mx-auto">
 
         <div class="md:flex items-center justify-between gap-10 mt-14 md:mt-0 mb-14 md:mb-28">
 
@@ -81,14 +112,14 @@
                 </p>
 
                 <div>
-                    <input type="text" placeholder="Enter Your Name" class="px-3 py-2 rounded-md ">
+                    <input id="name-input" type="text" placeholder="Enter Your Name" class="px-3 py-2 rounded-md ">
                 </div>
 
                 <div>
-                    <input type="text" placeholder="123456" class="px-3 py-2 rounded-md">
+                    <input id="password-input" type="password" placeholder="123456" class="px-3 py-2 rounded-md">
                 </div>
 
-                <button class="btn btn-primary">Get Started</button>
+                <button id="login-btn" class="btn btn-primary">Get Started</button>
             </div>
 
             <!-- right side -->
@@ -208,7 +239,7 @@
     </section>
 
     <!-- footer section -->
-    <section class="border-t-2 border-t-[#FFEBEB]">
+    <section id="footer" class="border-t-2 border-t-[#FFEBEB]">
         <div class="w-11/12 mx-auto mt-10 md:mt-20 mb-16 flex justify-between items-center">
             <!-- left side -->
             <div class="space-y-3">
@@ -241,6 +272,7 @@
 
     <!-- js script file -->
     <script src="scripts/allLevelFetch.js"></script>
+    <script src="scripts/loginSystem.js"></script>
 </body>
 
 </html>
