@@ -15,18 +15,30 @@ loginBtn.addEventListener('click', function () {
 
     // validate name
     if (!name) {
-        alert('Please enter your name');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Warning',
+            text: 'Please enter your name'
+        });
         return;
     }
 
     // validate password
     if (password !== '123456') {
-        alert('Incorrect password. Please enter 123456');
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Incorrect password. Please enter 123456'
+        });
         return;
     }
 
     // successful login
-    alert('Login successful! Welcome, ' + name);
+    Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Login successful! Welcome, ' + name
+    });
 
     // hide banner and show other sections
     banner.style.display = 'none';
@@ -50,5 +62,9 @@ logoutBtn.addEventListener('click', function () {
     nameInput.value = '';
     passwordInput.value = '';
 
-    alert('Logged out successfully');
+    Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Logged out successfully'
+    });
 });

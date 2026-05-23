@@ -13,6 +13,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         html {
             scroll-behavior: smooth;
@@ -99,7 +102,7 @@
     <!-- hero section -->
     <section id="banner" class="w-11/12 mx-auto">
 
-        <div class="md:flex items-center justify-between gap-10 mt-14 md:mt-0 mb-14 md:mb-28">
+        <div class="md:flex items-center justify-between gap-10 mb-14 md:mb-28">
 
             <!-- left side -->
             <div class="w-full md:w-1/2 space-y-5">
@@ -116,7 +119,8 @@
                 </div>
 
                 <div>
-                    <input id="password-input" type="password" placeholder="123456" class="px-3 py-2 rounded-md">
+                    <input id="password-input" type="password" placeholder="Enter login code (123456)"
+                        class="px-3 py-2 rounded-md">
                 </div>
 
                 <button id="login-btn" class="btn btn-primary">Get Started</button>
